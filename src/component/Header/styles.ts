@@ -25,6 +25,10 @@ export const HeaderContainer = styled.header`
         border-bottom: 3px solid ${theme['green-500']};
       }
 
+      &:focus {
+        box-shadow: none;
+      }
+
       &.active {
         color: ${theme['green-500']};
       }
