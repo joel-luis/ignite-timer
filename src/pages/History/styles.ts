@@ -18,6 +18,7 @@ export const HistoryList = styled.div`
     flex: 1;
     overflow: auto;
     margin-top: 2rem;
+    display: flex;
 
     table {
       width: 100%;
@@ -59,6 +60,32 @@ export const HistoryList = styled.div`
           padding-right: 1.5rem;
         }
       }
+    }
+  `}
+`
+
+const STATUS_COLORS = {
+  yellow: 'yellow-500',
+  green: 'green-500',
+  red: 'red-500'
+} as const
+
+interface StatusProps {
+  statusColor: keyof typeof STATUS_COLORS
+}
+
+export const Status = styled.span<StatusProps>`
+  ${({ theme, statusColor }) => css`
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &::before {
+      content: '';
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: ${theme[STATUS_COLORS[statusColor]]};
     }
   `}
 `
